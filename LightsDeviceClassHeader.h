@@ -13,10 +13,10 @@ class LightsDevice: public BaseDevice
     string getColor() const;
 
     void setBrightness(int brightness);
-    string getBrightness() const;
+    int getBrightness() const;
 
     private:
     string color;
-    string brightness;
+    int brightness;
 };
 #endif

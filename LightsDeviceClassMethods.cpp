@@ -38,7 +38,7 @@ void LightsDevice::setBrightness(int brightness)
     }
 }
 
-string LightsDevice::getBrightness() const
+int LightsDevice::getBrightness() const
 {
     return this -> brightness;
 }
