@@ -51,7 +51,16 @@ void BaseDevice::setBattery(int battery)
     }
 }
 
+void BaseDevice::decrementBattery()
+{
+    this -> battery -= 5;
+}
+
 int BaseDevice::getBattery() const
 {
+    if (battery == 0)
+    {
+        cout << "Your battery for this device has been depleted. Please charge this device to continue its use." << endl;
+    }
     return this->battery;
 }

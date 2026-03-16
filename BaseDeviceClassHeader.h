@@ -18,8 +18,8 @@ class BaseDevice
     void turnOff();
     bool getPower() const;
     void setBattery(int battery);
-    int getBattery();
-
+    void decrementBattery();
+    int getBattery() const;
 private:
     string name = "";
     int battery = 100;

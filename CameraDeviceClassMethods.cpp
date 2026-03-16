@@ -1,0 +1,75 @@
+#include "CameraDeviceClassHeader.h"
+CameraDevice::CameraDevice()
+{
+
+}
+
+CameraDevice::CameraDevice(string name)
+{
+    setName(name);
+}
+
+CameraDevice::~CameraDevice()
+{
+
+}
+
+int CameraDevice::getNumOfMotion()
+{
+    if (getPower() == false)
+    {
+        cout << "This device is off" << endl;
+        return 0;
+    }
+    srand(time(NULL));
+    this -> numOfMotion = rand() % 11;
+
+    decrementBattery();
+    return this -> numOfMotion;
+}
+
+bool CameraDevice::isMotionDetected()
+{
+    if (getPower() == false)
+    {
+        cout << "This device is off" << endl;
+        return false;
+    }
+    //srand(time(NULL));
+    decrementBattery();
+    bool temp = rand() % 2;
+    this -> motionDetected = temp;
+    return this -> motionDetected;
+}
+
+void CameraDevice::startRecording()
+{
+    if (getPower() == false)
+    {
+        cout << "This device is off" << endl;
+        return;
+    }
+    decrementBattery();
+    this -> recording = true;
+}
+
+void CameraDevice::stopRecording()
+{
+    if (getPower() == false)
+    {
+        cout << "This device is off" << endl;
+        return;
+    }
+    decrementBattery();
+    this -> recording = false;
+}
+
+bool CameraDevice::isRecording() const
+{
+    if (getPower() == false)
+    {
+        cout << "This device is off" << endl;
+        return 0;
+    }
+    return this -> recording;
+}
