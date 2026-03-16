@@ -2,6 +2,7 @@
 #include "BaseDeviceClassHeader.h"
 #include "LightsDeviceClassHeader.h"
 #include "CameraDeviceClassHeader.h"
+#include "ThermostatDeviceClassHeader.h"
 using namespace std;
 int main() {
 
@@ -87,6 +88,83 @@ int main() {
     backyardCamera.turnOff();
     cout << "This device has been turned off" << endl;
     cout << endl;
+
+    ThermostatDevice bedroomThermostat("Bedroom Thermostat", 80, 65);
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << endl;
+
+    bedroomThermostat.turnOn();
+    cout << "This device has been turned on" << endl;
+    cout << endl;
+
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
+    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
+
+    cout << endl;
+
+    bedroomThermostat.setTempMode("Cooling");
+    cout << "The mode of the thermostat has been altered" << endl;
+    cout << endl;
+
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
+    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
+    cout << endl;
+
+    bedroomThermostat.setTargetTemp(73);
+    cout << "The target temp of this thermostat has been altered" << endl;
+    cout << endl;
+
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
+    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
+
+    cout << endl;
+
+    bedroomThermostat.setMaxTemp(75);
+    cout << "The max temp of this thermostat has been altered" << endl;
+    cout << endl;
+
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
+    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
+    cout << endl;
+
+    bedroomThermostat.setTempMode("Heating");
+    cout << "The mode of this thermostat has been altered" << endl;
+    cout << endl;
+
+    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
+    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
+    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
+    cout << endl;
+
+    bedroomThermostat.turnOff();
+    cout << "This device has been turned off" << endl;
+    cout << endl;
+
 
     return 0;
 }
