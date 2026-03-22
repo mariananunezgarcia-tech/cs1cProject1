@@ -1,4 +1,6 @@
 #include "CameraDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
+
 CameraDevice::CameraDevice()
 {
 
@@ -18,8 +20,7 @@ int CameraDevice::getNumOfMotion()
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return 0;
+        throw DeviceException("This camera is off.");
     }
     srand(time(NULL));
     this -> numOfMotion = rand() % 11;

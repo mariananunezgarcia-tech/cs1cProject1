@@ -1,4 +1,6 @@
 #include "BaseDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
+
 BaseDevice::BaseDevice()
 {
 
@@ -43,7 +45,7 @@ void BaseDevice::setBattery(int battery)
 {
     if (battery < 0 || battery > 100)
     {
-        cout << "Not a valid battery percentage" << endl;
+        throw DeviceException("Battery must be between 0 and 100.");
     }
     else
     {
@@ -60,7 +62,7 @@ int BaseDevice::getBattery() const
 {
     if (battery == 0)
     {
-        cout << "Your battery for this device has been depleted. Please charge this device to continue its use." << endl;
+        throw DeviceException("Your battery for this device has been depleted. Please charge this device to continue its use.");
     }
     return this->battery;
 }

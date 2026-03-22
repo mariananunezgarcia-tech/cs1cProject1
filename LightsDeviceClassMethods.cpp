@@ -1,4 +1,6 @@
 #include "LightsDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
+
 LightsDevice::LightsDevice()
 {
 
@@ -18,11 +20,12 @@ LightsDevice::~LightsDevice()
 
 void LightsDevice::setColor(string color)
 {
+
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return;
+        throw DeviceException("This light is off. Cannot change color.");
     }
+
     decrementBattery();
     this -> color = color;
 }
@@ -36,12 +39,12 @@ void LightsDevice::setBrightness(int brightness)
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return;
+        throw DeviceException("This light is off. Cannot change brightness.");
     }
+
     if (brightness > 10 || brightness < 0)
     {
-        cout << "Not a valid brightness level" << endl;
+        throw DeviceException("Brightness must be between 0 and 10.");
     }
     else
     {

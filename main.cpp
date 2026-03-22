@@ -25,6 +25,8 @@ int main() {
 
     kitchenLights.setBrightness(10);
     cout << "The brightness of this device has been altered" << endl;
+
+    cout << "Setting color to Green..." << endl;
     kitchenLights.setColor("Green");
     cout << "The color of this device has been altered" << endl;
     cout << endl;
@@ -38,6 +40,17 @@ int main() {
     cout << endl;
     kitchenLights.turnOff();
     cout << "This device has been turned off" << endl;
+
+    try 
+    {
+        cout << "Setting color to Blue..." << endl;
+        kitchenLights.setColor("Blue");
+    }
+    catch (const DeviceException& color)
+    {
+        cout << "Erorr: " << color.what() << endl;
+    }
+
     cout << endl;
 
     CameraDevice backyardCamera("Backyard Camera");
@@ -121,6 +134,17 @@ int main() {
     cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
     cout << endl;
 
+    try 
+    {
+        cout << "Setting temperature to 200..." << endl;
+        bedroomThermostat.setTargetTemp(200);
+    }
+    catch(const DeviceException& temp)
+    {
+        cout << "Error: " << temp.what() << endl;
+    }
+
+    cout << "Setting temperature to 73..." << endl;
     bedroomThermostat.setTargetTemp(73);
     cout << "The target temp of this thermostat has been altered" << endl;
     cout << endl;
@@ -164,7 +188,6 @@ int main() {
     bedroomThermostat.turnOff();
     cout << "This device has been turned off" << endl;
     cout << endl;
-
 
     return 0;
 }
