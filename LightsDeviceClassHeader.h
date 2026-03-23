@@ -1,6 +1,7 @@
 #ifndef LIGHTSDEVICECLASSHEADER_H
 #define LIGHTSDEVICECLASSHEADER_H
 #include "BaseDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
 
 class LightsDevice: public BaseDevice
 {
