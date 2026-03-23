@@ -52,6 +52,7 @@ void CameraDevice::startRecording()
     }
     decrementBattery();
     this -> recording = true;
+    cout << "This device has begun recording" << endl;
 }
 
 void CameraDevice::stopRecording()
@@ -62,6 +63,7 @@ void CameraDevice::stopRecording()
     }
     decrementBattery();
     this -> recording = false;
+    cout << "This device has stopped recording" << endl;
 }
 
 bool CameraDevice::isRecording() const

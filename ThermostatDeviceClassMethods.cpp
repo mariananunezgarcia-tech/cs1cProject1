@@ -32,6 +32,8 @@ void ThermostatDevice::setMaxTemp(int maxTemp)
 
     decrementBattery();
     this -> maxTemp = maxTemp;
+    cout << "The max temp of this thermostat has been altered" << endl;
+
 }
 
 int ThermostatDevice::getMaxTemp()
@@ -53,6 +55,8 @@ void ThermostatDevice::setMinTemp(int minTemp)
 
     decrementBattery();
     this -> minTemp = minTemp;
+    cout << "The min temp of this thermostat has been altered" << endl;
+
 }
 
 int ThermostatDevice::getMinTemp()
@@ -125,6 +129,8 @@ void ThermostatDevice::setTargetTemp(int targetTemp)
         throw DeviceException("Target temperature is above maximum.");
         setTempMode("Cooling", this -> maxTemp);
     }
+    cout << "The target temp of this thermostat has been altered" << endl;
+
 }
 int ThermostatDevice::getTargetTemp()
 {
@@ -154,6 +160,7 @@ void ThermostatDevice::setTempMode(string tempMode, int target)
         this -> tempMode = tempMode;
     }
     this -> currentTemp = target;
+    cout << "The mode of the thermostat has been altered" << endl;
 }
 
 void ThermostatDevice::setTempMode(string tempMode)
@@ -185,6 +192,7 @@ void ThermostatDevice::setTempMode(string tempMode)
     {
         this -> currentTemp = this -> maxTemp;
     }
+    cout << "The mode of the thermostat has been altered" << endl;
 }
 
 string ThermostatDevice::getTempMode()

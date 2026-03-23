@@ -14,8 +14,6 @@ int main() {
     cout << endl;
 
     kitchenLights.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
     cout << "The name of the lights is " << kitchenLights.getName() << endl;
     cout << "The lights are " << (kitchenLights.getPower() ? "on" : "off") << endl;
@@ -26,11 +24,9 @@ int main() {
     cout << endl;
 
     kitchenLights.setBrightness(10);
-    cout << "The brightness of this device has been altered" << endl;
 
     cout << "Setting color to Green..." << endl;
     kitchenLights.setColor("Green");
-    cout << "The color of this device has been altered" << endl;
     cout << endl;
 
     cout << "The name of the lights is " << kitchenLights.getName() << endl;
@@ -41,7 +37,6 @@ int main() {
 
     cout << endl;
     kitchenLights.turnOff();
-    cout << "This device has been turned off" << endl;
 
     try 
     {
@@ -63,8 +58,6 @@ int main() {
     cout << endl;
 
     backyardCamera.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
     cout << "The name of the camera is " << backyardCamera.getName() << endl;
     cout << "The camera is " << (backyardCamera.getPower() ? "on" : "off") << endl;
@@ -76,7 +69,6 @@ int main() {
     cout << endl;
 
     backyardCamera.startRecording();
-    cout << "This device has begun recording" << endl;
     cout << endl;
 
     cout << "The name of the camera is " << backyardCamera.getName() << endl;
@@ -89,7 +81,7 @@ int main() {
     cout << endl;
 
     backyardCamera.stopRecording();
-    cout << "This device has stopped recording" << endl;
+
     cout << endl;
 
     cout << "The name of the camera is " << backyardCamera.getName() << endl;
@@ -101,8 +93,6 @@ int main() {
     cout << endl;
 
     backyardCamera.turnOff();
-    cout << "This device has been turned off" << endl;
-    cout << endl;
 
     ThermostatDevice bedroomThermostat("Bedroom Thermostat", 80, 65);
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
@@ -110,8 +100,6 @@ int main() {
     cout << endl;
 
     bedroomThermostat.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
     cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
@@ -124,7 +112,6 @@ int main() {
     cout << endl;
 
     bedroomThermostat.setTempMode("Cooling");
-    cout << "The mode of the thermostat has been altered" << endl;
     cout << endl;
 
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
@@ -148,7 +135,6 @@ int main() {
 
     cout << "Setting temperature to 73..." << endl;
     bedroomThermostat.setTargetTemp(73);
-    cout << "The target temp of this thermostat has been altered" << endl;
     cout << endl;
 
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
@@ -162,7 +148,6 @@ int main() {
     cout << endl;
 
     bedroomThermostat.setMaxTemp(75);
-    cout << "The max temp of this thermostat has been altered" << endl;
     cout << endl;
 
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
@@ -175,7 +160,6 @@ int main() {
     cout << endl;
 
     bedroomThermostat.setTempMode("Heating");
-    cout << "The mode of this thermostat has been altered" << endl;
     cout << endl;
 
     cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
@@ -188,8 +172,6 @@ int main() {
     cout << endl;
 
     bedroomThermostat.turnOff();
-    cout << "This device has been turned off" << endl;
-    cout << endl;
 
     SpeakerDevice livingRoomSpeaker("Living Room Speaker", 5);
     cout << "The name of the speaker is " << livingRoomSpeaker.getName() << endl;
@@ -197,8 +179,6 @@ int main() {
     cout << endl;
 
     livingRoomSpeaker.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
     cout << "The name of the speaker is " << livingRoomSpeaker.getName() << endl;
     cout << "The speaker is " << (livingRoomSpeaker.getPower() ? "on" : "off") << endl;
@@ -209,13 +189,10 @@ int main() {
     cout << endl;
 
     livingRoomSpeaker.setCurrentSong("Upbeat Song");
-    cout << "The current song of this speaker has been changed" << endl;
 
     livingRoomSpeaker.incrementVolume();
-    cout << "The volume of the speaker has been changed" << endl;
 
     livingRoomSpeaker.startSong();
-    cout << "The song has begun playing" << endl;
 
     cout << endl;
 
@@ -232,8 +209,6 @@ int main() {
     cout << endl;
 
     livingRoomSpeaker.turnOff();
-    cout << "This device has been turned off" << endl;
-    cout << endl;
 
     // manager section
     DeviceManager manager; // Create an instance of DeviceManager

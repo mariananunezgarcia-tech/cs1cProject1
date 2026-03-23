@@ -28,6 +28,7 @@ void LightsDevice::setColor(string color)
 
     decrementBattery();
     this -> color = color;
+    cout << "The color of this device has been altered" << endl;
 }
 
 string LightsDevice::getColor() const
@@ -50,6 +51,7 @@ void LightsDevice::setBrightness(int brightness)
     {
         decrementBattery();
         this -> brightness = brightness;
+        cout << "The brightness of this device has been altered" << endl;
     }
 }
 

@@ -25,14 +25,16 @@ void BaseDevice::setName(string name)
 {
     this->name = name;
 }
-//~~~~~ removed
+
 void BaseDevice::turnOn()
 {
+    cout << "This device has been turned on" << endl << endl;
     this->power = true;
 }
 
 void BaseDevice::turnOff()
 {
+    cout << "This device has been turned off" << endl << endl;
     this->power = false;
 }
 
@@ -66,4 +68,3 @@ int BaseDevice::getBattery() const
     }
     return this->battery;
 }
-//~~~~~

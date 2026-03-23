@@ -26,6 +26,7 @@ void SpeakerDevice::setVolume(int volume)
     }
     decrementBattery();
     this -> volume = volume;
+    cout << "The volume of the speaker has been altered" << endl;
 }
 
 int SpeakerDevice::getVolume() const
@@ -45,6 +46,7 @@ void SpeakerDevice::incrementVolume()
     }
     decrementBattery();
     this -> volume = this->volume + 1;
+    cout << "The volume of the speaker has been altered" << endl;
 }
 void SpeakerDevice::decrementVolume()
 {
@@ -58,6 +60,7 @@ void SpeakerDevice::decrementVolume()
     }
     decrementBattery();
     this -> volume = this->volume - 1;
+    cout << "The volume of the speaker has been altered" << endl;
 }
 
 void SpeakerDevice::setCurrentSong(string currentSong)
@@ -68,6 +71,7 @@ void SpeakerDevice::setCurrentSong(string currentSong)
     }
     decrementBattery();
     this -> currentSong = currentSong;
+    cout << "The current song of this speaker has been altered" << endl;
 }
 
 string SpeakerDevice::getCurrentSong()
@@ -88,6 +92,7 @@ void SpeakerDevice::startSong()
     }
     decrementBattery();
     this -> isPlaying = true;
+    cout << "The song has begun playing" << endl;
 }
 
 void SpeakerDevice::stopSong()
@@ -98,6 +103,7 @@ void SpeakerDevice::stopSong()
     }
     decrementBattery();
     this -> isPlaying = false;
+    cout << "The song has stopped playing" << endl;
 }
 
 bool SpeakerDevice::isSongPlaying() const
