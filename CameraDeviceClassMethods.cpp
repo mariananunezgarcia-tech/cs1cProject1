@@ -1,4 +1,6 @@
 #include "CameraDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
+
 CameraDevice::CameraDevice()
 {
 
@@ -18,8 +20,7 @@ int CameraDevice::getNumOfMotion()
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return 0;
+        throw DeviceException("This camera is off.");
     }
     srand(time(NULL));
     this -> numOfMotion = rand() % 11;
@@ -32,8 +33,9 @@ bool CameraDevice::isMotionDetected()
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return false;
+        throw DeviceException("This camera is off.");
+        /*cout << "This device is off" << endl;
+        return false;*/
     }
     //srand(time(NULL));
     decrementBattery();
@@ -46,8 +48,7 @@ void CameraDevice::startRecording()
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return;
+        throw DeviceException("This camera is off.");
     }
     decrementBattery();
     this -> recording = true;
@@ -57,8 +58,7 @@ void CameraDevice::stopRecording()
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return;
+        throw DeviceException("This camera is off.");
     }
     decrementBattery();
     this -> recording = false;
@@ -68,8 +68,7 @@ bool CameraDevice::isRecording() const
 {
     if (getPower() == false)
     {
-        cout << "This device is off" << endl;
-        return 0;
+        throw DeviceException("This camera is off.");
     }
     return this -> recording;
 }
