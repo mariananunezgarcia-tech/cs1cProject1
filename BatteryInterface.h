@@ -1,12 +1,3 @@
-/***************************************************************************
-* AUTHOR     : Gabriel Shepardson
-* STUDENT ID : A00220907
-* ASSIGN 1   : Smart Home System
-* CLASS      : CS 1C
-* SECTION    : MW: 5:00pm
-* DUE DATE   : 03/23/2026
-****************************************************************************/
-
 #ifndef BATTERYINTERFACE_H_
 #define BATTERYINTERFACE_H_
 #include <iostream>
