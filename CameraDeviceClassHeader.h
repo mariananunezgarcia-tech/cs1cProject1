@@ -1,7 +1,7 @@
 #ifndef CAMERADEVICECLASSHEADER_H_
 #define CAMERADEVICECLASSHEADER_H_
 
-#include "BaseDevice.h"
+#include "BaseDeviceClassHeader.h"
 #include "DevicePowerInterface.h"
 #include "BatteryInterface.h"
 #include <stdlib.h>
