@@ -1,4 +1,4 @@
-#include "ThermostatDevice.h"
+#include "ThermostatDeviceClassHeader.h"
 
 ThermostatDevice::ThermostatDevice()
 {
@@ -16,7 +16,7 @@ ThermostatDevice::ThermostatDevice()
 
 ThermostatDevice::ThermostatDevice(string name, int maxTemp, int minTemp)
 {
-    setName(name);
+    this -> name  = name;
     this -> power = 0;
     this -> maxTemp = maxTemp;
     this -> minTemp = minTemp;
@@ -231,4 +231,14 @@ int ThermostatDevice::getBattery() const
         cout << "Your battery for this device has been depleted. Please charge this device to continue its use." << endl;
     }
     return this -> battery;
+}
+
+void ThermostatDevice::setName(string name)
+{
+    this->name = name;
+}
+
+string ThermostatDevice::getName()
+{
+    return this->name;
 }
