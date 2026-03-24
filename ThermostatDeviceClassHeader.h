@@ -1,7 +1,7 @@
-#ifndef THERMOSTATDEVICE_H_
-#define THERMOSTATDEVICE_H_
+#ifndef THERMOSTATDEVICECLASSHEADER_H_
+#define THERMOSTATDEVICECLASSHEADER_H_
 
-#include "BaseDevice.h"
+#include "BaseDeviceClassHeader.h"
 #include "DevicePowerInterface.h"
 #include "BatteryInterface.h"
 
@@ -37,6 +37,7 @@ class ThermostatDevice: public BaseDevice,
 
 
     //Accessors
+	virtual string getName();
     virtual bool getPower() const;	 //Returns the current power state
     virtual int  getBattery() const; //Returns the current battery percentage
     int getMaxTemp();			     //Returns the max temperature
@@ -47,6 +48,7 @@ class ThermostatDevice: public BaseDevice,
     string getTempMode();			 //Returns the current temperature mode
 
     //Mutators
+    virtual void setName(string name);
     virtual void turnOn();				  //Turns the device on
     virtual void turnOff();			      //Turns the device off
     virtual void setBattery(int battery); //Sets the battery's percentage
@@ -68,6 +70,7 @@ class ThermostatDevice: public BaseDevice,
     int  currentTemp;
     int  targetTemp;
     string tempMode;
+    string name;
 };
 
-#endif /* THERMOSTATDEVICE_H_ */
+#endif /* THERMOSTATDEVICECLASSHEADER_H_ */
