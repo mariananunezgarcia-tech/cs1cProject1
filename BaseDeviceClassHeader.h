@@ -24,6 +24,8 @@ class BaseDevice
     string getName() const;     //Returns the name of the device
     void setName(string name);  //Sets a new name for the device
 
+    virtual void displayDeviceInfo() = 0;
+
     /* moved to interfaces
     void turnOn();
     void turnOff();

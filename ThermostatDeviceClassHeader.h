@@ -41,6 +41,8 @@ class ThermostatDevice: public BaseDevice,
     virtual void setBattery(int battery); //Sets the battery's percentage
     virtual void decrementBattery();	  //Decreases the battery's percentage
 
+    virtual void displayDeviceInfo();
+
     //device specific methods
     void setMaxTemp(int maxTemp);
     int getMaxTemp();

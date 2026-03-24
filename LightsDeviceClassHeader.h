@@ -18,6 +18,8 @@ class LightsDevice: public BaseDevice,
     virtual void turnOn();
     virtual void turnOff();
 
+    virtual void displayDeviceInfo();
+
     //device specific methods
     void setColor(string color);
     string getColor() const;

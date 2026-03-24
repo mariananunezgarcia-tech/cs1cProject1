@@ -117,3 +117,15 @@ int CameraDevice::getBattery() const
     }
     return this->battery;
 }
+
+void CameraDevice::displayDeviceInfo()
+{
+    cout << "~~~Camera Device Information~~~" << endl;
+    cout << "The name of the camera is " << this->getName() << endl;
+    cout << "The camera is " << (this->getPower() ? "on" : "off") << endl;
+    cout << "There has been " << this->getNumOfMotion() << " times where motion has been detected since you last checked" << endl;
+    cout << "There is " << (this->isMotionDetected() ? "" : "no ") << "motion detected right now" << endl;
+    cout << "The camera is " << (this->isRecording() ? "" : "not ") << "recording right now" << endl;
+    cout << "The battery percentage is " << this->getBattery() << "%" << endl;
+    cout << endl;
+}

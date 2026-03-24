@@ -24,6 +24,8 @@ class CameraDevice: public BaseDevice,
     virtual void setBattery(int battery);
     virtual void decrementBattery();
 
+    virtual void displayDeviceInfo();
+
     //device specific methods
     int getNumOfMotion();
     bool isMotionDetected();

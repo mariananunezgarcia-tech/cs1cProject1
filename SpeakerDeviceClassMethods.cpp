@@ -153,3 +153,19 @@ int SpeakerDevice::getBattery() const
     }
     return this->battery;
 }
+
+void SpeakerDevice::displayDeviceInfo()
+{
+    cout << "~~~Speaker Device Information~~~" << endl;
+    cout << "The name of the speaker is " << this->getName() << endl;
+    cout << "The speaker is " << (this->getPower() ? "on" : "off") << endl;
+    cout << "The volume of the speaker is " << this->getVolume() << endl;
+    cout << "There is " << (this->isSongPlaying() ? "a" : "no") << " song playing" << endl;
+    if (this->isSongPlaying())
+    {
+        cout << "The current song playing is " << this->getCurrentSong() << endl;
+    }
+    cout << "The battery percentage is " << this->getBattery() << "%" << endl;
+
+    cout << endl;
+}

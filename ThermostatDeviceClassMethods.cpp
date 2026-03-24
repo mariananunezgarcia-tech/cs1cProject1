@@ -242,3 +242,16 @@ int ThermostatDevice::getBattery() const
     }
     return this->battery;
 }
+
+void ThermostatDevice::displayDeviceInfo()
+{
+    cout << "~~~Thermostat Device Information~~~" << endl;
+    cout << "The name of the thermostat is " << this->getName() << endl;
+    cout << "The thermostat is " << (this->getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << this->getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << this->getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << this->getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << this->getTempMode() << endl;
+    cout << "The battery percentage is " << this->getBattery() << "%" << endl;
+    cout << endl;
+}

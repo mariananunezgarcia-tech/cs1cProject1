@@ -45,7 +45,7 @@ void DeviceManager::turnDeviceOn(const string& name)
 	// If the device is found the turnOn method of that device is called
     if (device != nullptr)
     {
-        device->turnOn();
+        //device->turnOn();
     }
 }
 
@@ -58,7 +58,7 @@ void DeviceManager::turnDeviceOff(const string& name)
 	// If the device is found the turnOff method of that device is called
     if (device != nullptr)
     {
-        device->turnOff();
+        //device->turnOff();
     }
 }
 
@@ -69,10 +69,7 @@ void DeviceManager::showAllDevices() const
 
     for (int i = 0; i < devices.size(); i++)
     {
-        cout << "Device Name: " << devices[i]->getName() << endl;
-        cout << "Power Status: " << (devices[i]->getPower() ? "On" : "Off") << endl;
-        cout << "Battery: " << devices[i]->getBattery() << "%" << endl;
-        cout << endl;
+        devices[i]->displayDeviceInfo();
     }
 }
 

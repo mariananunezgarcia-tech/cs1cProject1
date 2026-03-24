@@ -23,6 +23,8 @@ class SpeakerDevice: public BaseDevice,
     virtual void setBattery(int battery); //Sets the battery's percentage
     virtual void decrementBattery();	  //Decreases the battery's percentage
 
+    virtual void displayDeviceInfo();
+
     //device specific methods
     void setVolume(int volume);
     int getVolume() const;
