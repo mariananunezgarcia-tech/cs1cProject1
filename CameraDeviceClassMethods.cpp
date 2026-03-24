@@ -1,4 +1,4 @@
-#include "CameraDevice.h"
+#include "CameraDeviceClassHeader.h"
 
 CameraDevice::CameraDevice()
 {
@@ -12,7 +12,7 @@ CameraDevice::CameraDevice()
 
 CameraDevice::CameraDevice(string name)
 {
-    setName(name);
+    this -> name  = name;
 	this -> numOfMotion = 0;
 	this -> motionDetected = false;
 	this -> recording = false;
@@ -123,3 +123,12 @@ int CameraDevice::getBattery() const
     return this -> battery;
 }
 
+void CameraDevice::setName(string name)
+{
+    this->name = name;
+}
+
+string CameraDevice::getName()
+{
+    return this->name;
+}
