@@ -1,5 +1,5 @@
-#ifndef CAMERADEVICE_H_
-#define CAMERADEVICE_H_
+#ifndef CAMERADEVICECLASSHEADER_H_
+#define CAMERADEVICECLASSHEADER_H_
 
 #include "BaseDevice.h"
 #include "DevicePowerInterface.h"
@@ -17,6 +17,7 @@ class CameraDevice: public BaseDevice,
 		~CameraDevice();
 
 		//Accessors
+		virtual string getName();
 		virtual bool getPower()   const;
 	    virtual int  getBattery() const;
 		int  getNumOfMotion();
@@ -24,6 +25,7 @@ class CameraDevice: public BaseDevice,
 		bool isRecording() const;
 
 		//Mutators
+		virtual void setName(string name); //Sets a new name for the device
 		virtual void turnOn();
 		virtual void turnOff();
 	    virtual void setBattery(int battery);
@@ -38,6 +40,7 @@ class CameraDevice: public BaseDevice,
 		bool recording;
 		bool power;
 		int  battery;
+		string name;
 };
 
-#endif /* CAMERADEVICE_H_ */
+#endif /* CAMERADEVICECLASSHEADER_H_ */
