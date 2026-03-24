@@ -1,5 +1,5 @@
-#ifndef LIGHTSDEVICE_H_
-#define LIGHTSDEVICE_H_
+#ifndef LIGHTSDEVICECLASSHEADER_H_
+#define LIGHTSDEVICECLASSHEADER_H_
 
 #include "BaseDevice.h"
 #include "DevicePowerInterface.h"
@@ -13,11 +13,13 @@ class LightsDevice: public BaseDevice,
 		~LightsDevice();
 
 		//Accessors
+		virtual string getName();
 		virtual bool getPower()   const;
 		string  getColor()        const;
 		int     getBrightness()   const;
 
 		//mutators
+		virtual void setName(string name);
 		virtual void turnOn();
 		virtual void turnOff();
 		void setColor(string color);
@@ -28,6 +30,7 @@ class LightsDevice: public BaseDevice,
 		string color;
 		int    brightness;
 		bool   power;
+		string name;
 };
 
-#endif /* LIGHTSDEVICE_H_ */
+#endif /* LIGHTSDEVICECLASSHEADER_H_ */
