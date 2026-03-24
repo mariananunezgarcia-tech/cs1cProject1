@@ -1,4 +1,4 @@
-#include "LightsDevice.h"
+#include "LightsDeviceClassHeader.h"
 
 LightsDevice::LightsDevice()
 {
@@ -10,7 +10,7 @@ LightsDevice::LightsDevice()
 
 LightsDevice::LightsDevice(string name, string color, int brightness)
 {
-    setName(name);
+    this -> name  = name;
     this -> color = color;
     this -> brightness = brightness;
     this -> power = 0;
@@ -68,4 +68,14 @@ void LightsDevice::setBrightness(int brightness)
 int LightsDevice::getBrightness() const
 {
     return this -> brightness;
+}
+
+void LightsDevice::setName(string name)
+{
+    this->name = name;
+}
+
+string LightsDevice::getName()
+{
+    return this->name;
 }
