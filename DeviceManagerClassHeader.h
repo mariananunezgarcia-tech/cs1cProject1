@@ -6,9 +6,10 @@
 #include <iostream>
 #include <stdexcept>
 #include "BaseDeviceClassHeader.h"
+#include "DevicePowerInterface.h"
+#include "BatteryInterface.h"
 
 using namespace std;
-
 
 /***************************************************************************
 * DeviceManager Class
@@ -19,6 +20,7 @@ using namespace std;
 *   allowing for dynamic management of various types of devices that
 *   inherit from BaseDevice.
 ****************************************************************************/
+
 class DeviceManager
 {
 public:
