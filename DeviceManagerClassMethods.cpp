@@ -44,8 +44,11 @@ void DeviceManager::turnDeviceOn(const string& name)
 
 	// If the device is found the turnOn method of that device is called
     if (device != nullptr)
-    {
-        //device->turnOn();
+    {	
+        //Dynamically casts the found index to type DevicePowerInterface, which
+    	//has access to the turn on/off functions for the derived classes
+    	DevicePowerInterface* i = dynamic_cast<DevicePowerInterface*>(device);
+        i->turnOn();
     }
 }
 
@@ -58,7 +61,10 @@ void DeviceManager::turnDeviceOff(const string& name)
 	// If the device is found the turnOff method of that device is called
     if (device != nullptr)
     {
-        //device->turnOff();
+    	//Dynamically casts the found index to type DevicePowerInterface, which
+    	//has access to the turn on/off functions for the derived classes
+    	DevicePowerInterface* i = dynamic_cast<DevicePowerInterface*>(device);
+        i->turnOff();
     }
 }
 
