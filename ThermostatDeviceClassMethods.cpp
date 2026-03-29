@@ -18,6 +18,23 @@ ThermostatDevice::~ThermostatDevice()
 
 }
 
+void ThermostatDevice::turnOn()
+{
+    cout << "This device has been turned on" << endl << endl;
+    this->power = true;
+}
+
+void ThermostatDevice::turnOff()
+{
+    cout << "This device has been turned off" << endl << endl;
+    this->power = false;
+}
+
+bool ThermostatDevice::getPower() const
+{
+    return this->power;
+}
+
 void ThermostatDevice::setMaxTemp(int maxTemp)
 {
     if (getPower() == false)
@@ -32,6 +49,8 @@ void ThermostatDevice::setMaxTemp(int maxTemp)
 
     decrementBattery();
     this -> maxTemp = maxTemp;
+    cout << "The max temp of this thermostat has been altered" << endl;
+
 }
 
 int ThermostatDevice::getMaxTemp()
@@ -53,6 +72,8 @@ void ThermostatDevice::setMinTemp(int minTemp)
 
     decrementBattery();
     this -> minTemp = minTemp;
+    cout << "The min temp of this thermostat has been altered" << endl;
+
 }
 
 int ThermostatDevice::getMinTemp()
@@ -125,6 +146,8 @@ void ThermostatDevice::setTargetTemp(int targetTemp)
         throw DeviceException("Target temperature is above maximum.");
         setTempMode("Cooling", this -> maxTemp);
     }
+    cout << "The target temp of this thermostat has been altered" << endl;
+
 }
 int ThermostatDevice::getTargetTemp()
 {
@@ -154,6 +177,7 @@ void ThermostatDevice::setTempMode(string tempMode, int target)
         this -> tempMode = tempMode;
     }
     this -> currentTemp = target;
+    cout << "The mode of the thermostat has been altered" << endl;
 }
 
 void ThermostatDevice::setTempMode(string tempMode)
@@ -185,9 +209,49 @@ void ThermostatDevice::setTempMode(string tempMode)
     {
         this -> currentTemp = this -> maxTemp;
     }
+    cout << "The mode of the thermostat has been altered" << endl;
 }
 
 string ThermostatDevice::getTempMode()
 {
     return this -> tempMode;
+}
+
+void ThermostatDevice::setBattery(int battery)
+{
+    if (battery < 0 || battery > 100)
+    {
+        throw DeviceException("Battery must be between 0 and 100.");
+    }
+    else
+    {
+        this->battery = battery;
+    }
+}
+
+void ThermostatDevice::decrementBattery()
+{
+    this -> battery -= 5;
+}
+
+int ThermostatDevice::getBattery() const
+{
+    if (battery <= 0)
+    {
+        throw DeviceException("Your battery for this device has been depleted. Please charge this device to continue its use.");
+    }
+    return this->battery;
+}
+
+void ThermostatDevice::displayDeviceInfo()
+{
+    cout << "~~~Thermostat Device Information~~~" << endl;
+    cout << "The name of the thermostat is " << this->getName() << endl;
+    cout << "The thermostat is " << (this->getPower() ? "on" : "off") << endl;
+    cout << "The max temp of the thermostat is set to " << this->getMaxTemp() << endl;
+    cout << "The min temp of the thermostat is set to " << this->getMinTemp() << endl;
+    cout << "The current temp of the thermostat is " << this->getCurrentTemp() << endl;
+    cout << "The mode of the thermostat is " << this->getTempMode() << endl;
+    cout << "The battery percentage is " << this->getBattery() << "%" << endl;
+    cout << endl;
 }

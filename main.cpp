@@ -3,43 +3,48 @@
 #include "LightsDeviceClassHeader.h"
 #include "CameraDeviceClassHeader.h"
 #include "ThermostatDeviceClassHeader.h"
+#include "SpeakerDeviceClassHeader.h"
+#include "DeviceManagerClassHeader.h"
+#include "DevicePowerInterface.h"
+#include "BatteryInterface.h"
+
 using namespace std;
 int main() {
 
+    // manager section
+    DeviceManager manager; // Create an instance of DeviceManager
+
     LightsDevice kitchenLights("Kitchen Lights", "White", 7);
-    cout << "The name of the lights is " << kitchenLights.getName() << endl;
-    cout << "The lights are " << (kitchenLights.getPower() ? "on" : "off") << endl;
-    cout << endl;
+
+    CameraDevice backyardCamera("Backyard Camera");
+
+    ThermostatDevice bedroomThermostat("Bedroom Thermostat", 80, 65);
+
+    SpeakerDevice livingRoomSpeaker("Living Room Speaker", 5);
+
+    // Add devices to the manager using pointers to the existing device objects
+    manager.addDevice(&kitchenLights);
+    manager.addDevice(&backyardCamera);
+    manager.addDevice(&bedroomThermostat);
+    manager.addDevice(&livingRoomSpeaker);
+
 
     kitchenLights.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
-    cout << "The name of the lights is " << kitchenLights.getName() << endl;
-    cout << "The lights are " << (kitchenLights.getPower() ? "on" : "off") << endl;
-    cout << "The color of the lights is " << kitchenLights.getColor() << endl;
-    cout << "The brightness of the light is " << kitchenLights.getBrightness() << endl;
-    cout << "The battery percentage is " << kitchenLights.getBattery() << "%" << endl;
+    kitchenLights.displayDeviceInfo();
 
     cout << endl;
 
     kitchenLights.setBrightness(10);
-    cout << "The brightness of this device has been altered" << endl;
+    cout << endl;
 
     cout << "Setting color to Green..." << endl;
     kitchenLights.setColor("Green");
-    cout << "The color of this device has been altered" << endl;
     cout << endl;
 
-    cout << "The name of the lights is " << kitchenLights.getName() << endl;
-    cout << "The lights are " << (kitchenLights.getPower() ? "on" : "off") << endl;
-    cout << "The color of the lights is " << kitchenLights.getColor() << endl;
-    cout << "The brightness of the light is " << kitchenLights.getBrightness() << endl;
-    cout << "The battery percentage is " << kitchenLights.getBattery() << "%" << endl;
+    kitchenLights.displayDeviceInfo();
 
-    cout << endl;
     kitchenLights.turnOff();
-    cout << "This device has been turned off" << endl;
 
     try 
     {
@@ -53,86 +58,32 @@ int main() {
 
     cout << endl;
 
-    CameraDevice backyardCamera("Backyard Camera");
-    cout << "The name of the camera is " << backyardCamera.getName() << endl;
-    cout << "The camera is " << (backyardCamera.getPower() ? "on" : "off") << endl;
-    cout << "The battery percentage is " << backyardCamera.getBattery() << "%" << endl;
-
-    cout << endl;
 
     backyardCamera.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
-    cout << "The name of the camera is " << backyardCamera.getName() << endl;
-    cout << "The camera is " << (backyardCamera.getPower() ? "on" : "off") << endl;
-    cout << "There has been " << backyardCamera.getNumOfMotion() << " times where motion has been detected since you last checked" << endl;
-    cout << "There is " << (backyardCamera.isMotionDetected() ? "" : "no ") << "motion detected right now" << endl;
-    cout << "The camera is " << (backyardCamera.isRecording() ? "" : "not ") << "recording right now" << endl;
-    cout << "The battery percentage is " << backyardCamera.getBattery() << "%" << endl;
-
-    cout << endl;
+    backyardCamera.displayDeviceInfo();
 
     backyardCamera.startRecording();
-    cout << "This device has begun recording" << endl;
     cout << endl;
 
-    cout << "The name of the camera is " << backyardCamera.getName() << endl;
-    cout << "The camera is " << (backyardCamera.getPower() ? "on" : "off") << endl;
-    cout << "There has been " << backyardCamera.getNumOfMotion() << " times where motion has been detected since you last checked" << endl;
-    cout << "There is" << (backyardCamera.isMotionDetected() ? " " : " no ") << "motion detected right now" << endl;
-    cout << "The camera is" << (backyardCamera.isRecording() ? " " : " not ") << "recording right now" << endl;
-    cout << "The battery percentage is " << backyardCamera.getBattery() << "%" << endl;
-
-    cout << endl;
+    backyardCamera.displayDeviceInfo();
 
     backyardCamera.stopRecording();
-    cout << "This device has stopped recording" << endl;
     cout << endl;
 
-    cout << "The name of the camera is " << backyardCamera.getName() << endl;
-    cout << "The camera is " << (backyardCamera.getPower() ? "on" : "off") << endl;
-    cout << "There has been " << backyardCamera.getNumOfMotion() << " times where motion has been detected since you last checked" << endl;
-    cout << "There is " << (backyardCamera.isMotionDetected() ? "" : "no ") << "motion detected right now" << endl;
-    cout << "The camera is " << (backyardCamera.isRecording() ? "" : "not ") << "recording right now" << endl;
-    cout << "The battery percentage is " << backyardCamera.getBattery() << "%" << endl;
-    cout << endl;
+    backyardCamera.displayDeviceInfo();
 
     backyardCamera.turnOff();
-    cout << "This device has been turned off" << endl;
-    cout << endl;
 
-    ThermostatDevice bedroomThermostat("Bedroom Thermostat", 80, 65);
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << endl;
 
     bedroomThermostat.turnOn();
-    cout << "This device has been turned on" << endl;
-    cout << endl;
 
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
-    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
-    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
-    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
-    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
-
-    cout << endl;
+    bedroomThermostat.displayDeviceInfo();
 
     bedroomThermostat.setTempMode("Cooling");
-    cout << "The mode of the thermostat has been altered" << endl;
     cout << endl;
 
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
-    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
-    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
-    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
-    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
-    cout << endl;
+    bedroomThermostat.displayDeviceInfo();
 
     try 
     {
@@ -144,50 +95,55 @@ int main() {
         cout << "Error: " << temp.what() << endl;
     }
 
+    cout << endl;
     cout << "Setting temperature to 73..." << endl;
     bedroomThermostat.setTargetTemp(73);
-    cout << "The target temp of this thermostat has been altered" << endl;
     cout << endl;
 
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
-    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
-    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
-    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
-    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
-
-    cout << endl;
+    bedroomThermostat.displayDeviceInfo();
 
     bedroomThermostat.setMaxTemp(75);
-    cout << "The max temp of this thermostat has been altered" << endl;
     cout << endl;
 
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
-    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
-    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
-    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
-    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
-    cout << endl;
+    bedroomThermostat.displayDeviceInfo();
 
     bedroomThermostat.setTempMode("Heating");
-    cout << "The mode of this thermostat has been altered" << endl;
     cout << endl;
 
-    cout << "The name of the thermostat is " << bedroomThermostat.getName() << endl;
-    cout << "The thermostat is " << (bedroomThermostat.getPower() ? "on" : "off") << endl;
-    cout << "The max temp of the thermostat is set to " << bedroomThermostat.getMaxTemp() << endl;
-    cout << "The min temp of the thermostat is set to " << bedroomThermostat.getMinTemp() << endl;
-    cout << "The current temp of the thermostat is " << bedroomThermostat.getCurrentTemp() << endl;
-    cout << "The mode of the thermostat is " << bedroomThermostat.getTempMode() << endl;
-    cout << "The battery percentage is " << bedroomThermostat.getBattery() << "%" << endl;
-    cout << endl;
+    bedroomThermostat.displayDeviceInfo();
 
     bedroomThermostat.turnOff();
-    cout << "This device has been turned off" << endl;
+
+
+    livingRoomSpeaker.turnOn();
+
+    livingRoomSpeaker.displayDeviceInfo();
+
+    livingRoomSpeaker.setCurrentSong("Upbeat Song");
     cout << endl;
+
+    livingRoomSpeaker.incrementVolume();
+    cout << endl;
+
+    livingRoomSpeaker.startSong();
+    cout << endl;
+
+    livingRoomSpeaker.displayDeviceInfo();
+
+    livingRoomSpeaker.turnOff();
+
+
+    /* does not work as of now
+    // Use the manager to turn on devices by name
+    manager.turnDeviceOn("Kitchen Lights");
+    manager.turnDeviceOn("Backyard Camera");
+    manager.turnDeviceOn("Bedroom Thermostat");
+    manager.turnDeviceOn("Living Room Speaker");
+
+    would work if the turn on capabilities were working
+    // Display all devices and their status using the manager
+    manager.showAllDevices();
+    */
 
     return 0;
 }
