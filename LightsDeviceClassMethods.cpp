@@ -51,27 +51,82 @@ string LightsDevice::getColor() const
     return this -> color;
 }
 
-void LightsDevice::setBrightness(int brightness)
+int LightsDevice::getIntensity()
+{
+    return this -> brightness;
+}
+
+void LightsDevice::increaseIntensity()
 {
     if (getPower() == false)
     {
-        throw PowerException(getName());
+        throw DeviceException("These Lights is off. Cannot change brightness.");
+    }
+    if (this->brightness == 10)
+    {
+        throw DeviceException("Lights are already at maximum brightness.");
     }
 
-    if (brightness > 10 || brightness < 0)
+    this -> brightness = this->brightness + 1;
+    cout << "The brightness of the lights has been altered" << endl;
+}
+
+void LightsDevice::increaseIntensity(int amount)
+{
+    if (getPower() == false)
     {
-        throw InvalidInputException("Brightness must be between 0 and 10.");
+        throw DeviceException("These Lights is off. Cannot change brightness.");
+    }
+    if (this->brightness == 10)
+    {
+        throw DeviceException("Lights are already at maximum brightness.");
+    }
+    else if ((this -> brightness + amount) > 10)
+    {
+    	this -> brightness = 10;
     }
     else
     {
-        this -> brightness = brightness;
-        cout << "The brightness of this device has been altered" << endl;
+        this -> brightness = this->brightness + amount;
     }
+
+    cout << "The brightness of the lights has been altered" << endl;
 }
 
-int LightsDevice::getBrightness() const
+void LightsDevice::decreaseIntensity()
 {
-    return this -> brightness;
+    if (getPower() == false)
+    {
+        throw DeviceException("These Lights are off. Cannot change brightness.");
+    }
+    if (this->brightness == 0)
+    {
+        throw DeviceException("Lights are already at minimum brightness.");
+    }
+    this -> brightness = this -> brightness - 1;
+    cout << "The brightness of the lights has been altered" << endl;
+}
+
+void LightsDevice::decreaseIntensity(int amount)
+{
+    if (getPower() == false)
+    {
+        throw DeviceException("These Lights is off. Cannot change brightness.");
+    }
+    if (this->brightness == 0)
+    {
+        throw DeviceException("Lights are already at minimum brightness.");
+    }
+    else if ((this -> brightness - amount) < 0)
+    {
+    	this -> brightness = 0;
+    }
+    else
+    {
+        this -> brightness = this->brightness - amount;
+    }
+
+    cout << "The brightness of the lights has been altered" << endl;
 }
 
 
@@ -81,6 +136,6 @@ void LightsDevice::displayDeviceInfo()
     cout << "The name of the lights is " << this->getName() << endl;
     cout << "The lights are " << (this->getPower() ? "on" : "off") << endl;
     cout << "The color of the lights is " << this->getColor() << endl;
-    cout << "The brightness of the light is " << this->getBrightness() << endl << endl;
+    cout << "The brightness of the light is " << this->getIntensity() << endl << endl;
 
 }
