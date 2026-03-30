@@ -56,9 +56,11 @@ Mariana
 - Completed manager function based on Lila’s code; furthermore utilizing polymorphism to call functions from other related classes. 
 
 Michelle
-- I created a manager class that stores all the devices in a vector of BaseDevice pointers. So far it handles things like adding devices, turning them on/off, and calling their functions using polymorphism. I also connected the manager class to main by adding the light, camera, and thermostat objects to the manager. 
-Implemented functions to add devices, search for a device by name, turn devices on and off, display all devices, and return the total number of devices being managed. 
-
-
-
-
+- Created the manager class (DeviceManager) that stores all the devices in a vector of BaseDevice pointers and acts as the central controller for all smart home devices
+- Stores devices polymorphically using a vector to support multiple device types
+- Implemented core functions including:
+  - Adding devices to the system
+  - Searching for devices by name
+  - turning devices on and off
+  - Displaying all device information
+  - Returning the total number of managed devices
