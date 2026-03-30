@@ -192,7 +192,7 @@ bool RoombaDevice::isDocked() const
 // ---------------- SUCTION METHODS ---------------- :)
 
 // Sets suction level
-void RoombaDevice::setSuctionLevel(int suctionLevel)
+void RoombaDevice::setIntensity(int suctionLevel)
 {
     // Cannot change suction if device is off
     if (getPower() == false)
@@ -216,10 +216,107 @@ void RoombaDevice::setSuctionLevel(int suctionLevel)
 }
 
 // Returns suction level
-int RoombaDevice::getSuctionLevel() const
+int RoombaDevice::getIntensity()
 {
     return this->suctionLevel;
 }
+
+// Increments the suction level
+void RoombaDevice::increaseIntensity()
+{
+    // Cannot change suction if device is off
+    if (getPower() == false)
+    {
+        throw DeviceException("This Roomba is off. Cannot change suction.");
+    }
+    // Checks if suction level is already at max
+    if (this->suctionLevel == 3)
+    {
+        throw DeviceException("Roomba is already at maximum suction.");
+    }
+    // Reduces Battery
+    decrementBattery();
+    //Increments the suction level by 1
+    this -> suctionLevel = this -> suctionLevel + 1;
+    cout << "The suction of the Roomba has been altered" << endl;
+}
+
+void RoombaDevice::increaseIntensity(int amount)
+{
+    // Cannot change suction if device is off
+    if (getPower() == false)
+    {
+        throw DeviceException("This Roomba is off. Cannot change suction.");
+    }
+    // Checks if suction level is already at max
+    if (this->suctionLevel == 3)
+    {
+        throw DeviceException("Roomba is already at maximum suction.");
+    }
+    // If increase amount is greater than max, sets suction level to max
+    else if ((this -> suctionLevel + amount) > 3)
+    {
+    	this -> suctionLevel = 3;
+    }
+    // Add amount to the suction level
+    else
+    {
+        this -> suctionLevel = this -> suctionLevel + amount;
+    }
+    
+    // Reduces battery
+    decrementBattery();
+    cout << "The suction of the Roomba has been altered" << endl;
+}
+
+void RoombaDevice::decreaseIntensity()
+{
+    // Cannot change suction if device is off
+    if (getPower() == false)
+    {
+        throw DeviceException("This Roomba is off. Cannot change suction.");
+    }
+    // Checks is suction is already at minimum
+    if (this -> suctionLevel == 1)
+    {
+        throw DeviceException("Roomba is already at minimum suction.");
+    }
+    // Reduces battery
+    decrementBattery();
+    // Decrements suction level
+    this -> suctionLevel = this -> suctionLevel - 1;
+    cout << "The suction of the Roomba has been altered" << endl;
+}
+
+void RoombaDevice::decreaseIntensity(int amount)
+{
+    // Cannot change suction if device is off
+    if (getPower() == false)
+    {
+        throw DeviceException("This Roomba is off. Cannot change suction.");
+    }
+    
+    // Checks is suction is already at minimum
+    if (this->suctionLevel == 1)
+    {
+        throw DeviceException("Roomba is already at minimum suction.");
+    }
+    // If decrease amount is less than min, sets suction level to min
+    else if ((this -> suctionLevel - amount) < 1)
+    {
+    	this -> suctionLevel = 1;
+    }
+    // Decreases suction level by amount
+    else
+    {
+        this -> suctionLevel = this -> suctionLevel - amount;
+    }
+
+    // Reduces battery
+    decrementBattery();
+    cout << "The suction of the Roomba has been altered" << endl;
+}
+
 
 // ---------------- DUST BIN METHODS ----------------
 
