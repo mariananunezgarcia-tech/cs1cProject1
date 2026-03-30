@@ -81,6 +81,6 @@ void LightsDevice::displayDeviceInfo()
     cout << "The name of the lights is " << this->getName() << endl;
     cout << "The lights are " << (this->getPower() ? "on" : "off") << endl;
     cout << "The color of the lights is " << this->getColor() << endl;
-    cout << "The brightness of the light is " << this->getBrightness() << endl;
+    cout << "The brightness of the light is " << this->getBrightness() << endl << endl;
 
 }

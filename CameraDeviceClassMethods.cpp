@@ -3,11 +3,12 @@
 
 CameraDevice::CameraDevice()
 {
-
+    srand(time(NULL));
 }
 
 CameraDevice::CameraDevice(string name)
 {
+    srand(time(NULL));
     setName(name);
 }
 
@@ -39,7 +40,9 @@ int CameraDevice::getNumOfMotion()
     {
         throw PowerException(getName());
     }
-    srand(time(NULL));
+
+    //randomizing the number of times motion is detected
+    //up to ten times motion can be detected between asks
     this -> numOfMotion = rand() % 11;
 
     decrementBattery();
@@ -52,10 +55,12 @@ bool CameraDevice::isMotionDetected()
     {
         throw PowerException(getName());        
     }
-    //srand(time(NULL));
     decrementBattery();
+
+    //setting whether there is motion currently
     bool temp = rand() % 2;
     this -> motionDetected = temp;
+
     return this -> motionDetected;
 }
 

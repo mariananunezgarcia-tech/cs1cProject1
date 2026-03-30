@@ -74,6 +74,7 @@ void DeviceManager::turnDeviceOff(const string& name)
 void DeviceManager::showAllDevices() const
 {
     cout << "****** Smart Home Devices  ******" << endl;
+    cout << "~~~Showing information for all devices~~~" << endl;
 
     for (int i = 0; i < devices.size(); i++)
     {

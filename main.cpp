@@ -28,13 +28,12 @@ int main() {
     manager.addDevice(&bedroomThermostat);
     manager.addDevice(&livingRoomSpeaker);
 
+    cout << "~~~Interacting with Kitchen Lights~~~" << endl;
     cout << "Turning lights on..." << endl;
 
-    kitchenLights.turnOn();
+    manager.turnDeviceOn(kitchenLights.getName());
 
     kitchenLights.displayDeviceInfo();
-
-    cout << endl;
 
     kitchenLights.setBrightness(10);
     cout << endl;
@@ -45,13 +44,12 @@ int main() {
 
     kitchenLights.displayDeviceInfo();
 
-    kitchenLights.turnOff();
+    manager.turnDeviceOff(kitchenLights.getName());
 
-    cout << endl;
-
+    cout << "~~~Interacting with Backyard Camera~~~" << endl;
     cout << "Turning camera on..." << endl;
 
-    backyardCamera.turnOn();
+    manager.turnDeviceOn(backyardCamera.getName());
 
     backyardCamera.displayDeviceInfo();
 
@@ -65,7 +63,7 @@ int main() {
 
     backyardCamera.displayDeviceInfo();
 
-    backyardCamera.turnOff();
+    manager.turnDeviceOff(backyardCamera.getName());
 
     // test case for power exception
     try
@@ -80,9 +78,10 @@ int main() {
 
     cout << endl;
 
+    cout << "~~~Interacting with Bedroom Thermostat~~~" << endl;
     cout << "Turning thermostat on..." << endl;
 
-    bedroomThermostat.turnOn();
+    manager.turnDeviceOn(bedroomThermostat.getName());
 
     bedroomThermostat.displayDeviceInfo();
 
@@ -93,7 +92,7 @@ int main() {
 
 
     // test case for invalid input exception
-    try 
+    try
     {
         cout << "Setting temperature to 200..." << endl;
         bedroomThermostat.setTargetTemp(200);
@@ -121,11 +120,12 @@ int main() {
 
     bedroomThermostat.displayDeviceInfo();
 
-    bedroomThermostat.turnOff();
+    manager.turnDeviceOff(bedroomThermostat.getName());
 
+    cout << "~~~Interacting with Living Room Speaker~~~" << endl;
     cout << "Turning speaker on..." << endl;
 
-    livingRoomSpeaker.turnOn();
+    manager.turnDeviceOn(livingRoomSpeaker.getName());
 
     livingRoomSpeaker.displayDeviceInfo();
 
@@ -140,7 +140,20 @@ int main() {
 
     livingRoomSpeaker.displayDeviceInfo();
 
-    livingRoomSpeaker.turnOff();
+    manager.turnDeviceOff(livingRoomSpeaker.getName());
 
+    cout << "~~~Turning all devices on~~~" << endl;
+    manager.turnDeviceOn(kitchenLights.getName());
+    manager.turnDeviceOn(backyardCamera.getName());
+    manager.turnDeviceOn(bedroomThermostat.getName());
+    manager.turnDeviceOn(livingRoomSpeaker.getName());
+
+    manager.showAllDevices();
+
+    cout << "~~~Turning all devices off~~~" << endl;
+    manager.turnDeviceOff(kitchenLights.getName());
+    manager.turnDeviceOff(backyardCamera.getName());
+    manager.turnDeviceOff(bedroomThermostat.getName());
+    manager.turnDeviceOff(livingRoomSpeaker.getName());
     return 0;
 }
