@@ -1,13 +1,16 @@
 #ifndef SPEAKERDEVICECLASSHEADER_H_
 #define SPEAKERDEVICECLASSHEADER_H_
+
 #include "BaseDeviceClassHeader.h"
 #include "ExceptionsClassHeader.h"
 #include "DevicePowerInterface.h"
 #include "BatteryInterface.h"
+#include "DeviceIntensityInterface.h"
 
 class SpeakerDevice: public BaseDevice,
-                    public DevicePowerInterface,
-                    public BatteryInterface
+                     public DevicePowerInterface,
+                     public BatteryInterface,
+					 public DeviceIntensityInterface
 {
     public:
     SpeakerDevice();
@@ -25,12 +28,15 @@ class SpeakerDevice: public BaseDevice,
     virtual void turnOff();			      //Turns the device off
     virtual void setBattery(int battery); //Sets the battery's percentage
     virtual void decrementBattery();	  //Decreases the battery's percentage
+    virtual void displayDeviceInfo();
 
     //device specific methods
-    void setVolume(int volume);
-    int getVolume() const;
-    void incrementVolume();
-    void decrementVolume();
+    virtual int  getIntensity();
+	virtual void setIntensity(int volume);
+	virtual void increaseIntensity();
+	virtual void increaseIntensity(int amount);
+	virtual void decreaseIntensity();
+	virtual void decreaseIntensity(int amount);
 
     void setCurrentSong(string currentSong);
     string getCurrentSong();
@@ -48,8 +54,5 @@ class SpeakerDevice: public BaseDevice,
     bool power = false;
     int  battery = 100;
 };
-
-
-
 
 #endif /* SPEAKERDEVICECLASSHEADER_H_ */
