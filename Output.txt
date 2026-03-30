@@ -1,0 +1,314 @@
+~~~Interacting with Kitchen Lights~~~
+Turning lights on...
+This device has been turned on
+
+~~~Lights Device Information~~~
+The name of the lights is Kitchen Lights
+The lights are on
+The color of the lights is White
+The brightness of the light is 7
+
+The brightness of this device has been altered
+
+Setting color to Green...
+The color of this device has been altered
+
+~~~Lights Device Information~~~
+The name of the lights is Kitchen Lights
+The lights are on
+The color of the lights is Green
+The brightness of the light is 10
+
+This device has been turned off
+
+~~~Interacting with Backyard Camera~~~
+Turning camera on...
+This device has been turned on
+
+~~~Camera Device Information~~~
+The name of the camera is Backyard Camera
+The camera is on
+There has been 5 times where motion has been detected since you last checked
+There is motion detected right now
+The camera is not recording right now
+The battery percentage is 90%
+
+This device has begun recording
+
+~~~Camera Device Information~~~
+The name of the camera is Backyard Camera
+The camera is on
+There has been 6 times where motion has been detected since you last checked
+There is motion detected right now
+The camera is recording right now
+The battery percentage is 75%
+
+This device has stopped recording
+
+~~~Camera Device Information~~~
+The name of the camera is Backyard Camera
+The camera is on
+There has been 10 times where motion has been detected since you last checked
+There is motion detected right now
+The camera is not recording right now
+The battery percentage is 60%
+
+This device has been turned off
+
+Starting recording...
+Backyard Camera is OFF.
+
+~~~Interacting with Bedroom Thermostat~~~
+Turning thermostat on...
+This device has been turned on
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 80
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 75
+The mode of the thermostat is Idle
+The battery percentage is 100%
+
+The mode of the thermostat has been altered
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 80
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 70
+The mode of the thermostat is Cooling
+The battery percentage is 95%
+
+Setting temperature to 200...
+Invalid Input: Target temperature is above maximum.
+
+Setting temperature to 73...
+The mode of the thermostat has been altered
+The target temp of this thermostat has been altered
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 80
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 73
+The mode of the thermostat is Heating
+The battery percentage is 80%
+
+The max temp of this thermostat has been altered
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 75
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 73
+The mode of the thermostat is Heating
+The battery percentage is 75%
+
+The mode of the thermostat has been altered
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 75
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 75
+The mode of the thermostat is Heating
+The battery percentage is 70%
+
+This device has been turned off
+
+~~~Interacting with Living Room Speaker~~~
+Turning speaker on...
+This device has been turned on
+
+~~~Speaker Device Information~~~
+The name of the speaker is Living Room Speaker
+The speaker is on
+The volume of the speaker is 5
+There is no song playing
+The battery percentage is 100%
+
+The current song of this speaker has been altered
+
+The volume of the speaker has been altered
+
+The song has begun playing
+
+~~~Speaker Device Information~~~
+The name of the speaker is Living Room Speaker
+The speaker is on
+The volume of the speaker is 6
+There is a song playing
+The current song playing is Upbeat Song
+The battery percentage is 80%
+
+This device has been turned off
+
+~~~Interacting with Front Door Lock~~~
+This device has been turned on
+
+~~~Lock Device Information~~~
+Name: Front Door Lock
+Power: On
+Status: Locked
+Alarm: Normal
+Battery: 100%
+
+Unlocking with correct PIN...
+The lock has been disengaged
+
+~~~Lock Device Information~~~
+Name: Front Door Lock
+Power: On
+Status: Unlocked
+Alarm: Normal
+Battery: 95%
+
+Locking again...
+The lock has been engaged
+
+Trying wrong PIN...
+Invalid Input: Incorrect PIN.
+
+~~~Lock Device Information~~~
+Name: Front Door Lock
+Power: On
+Status: Locked
+Alarm: Normal
+Battery: 85%
+
+This device has been turned off
+
+~~~Interacting with Downstairs Roomba~~~
+This device has been turned on
+
+~~~Roomba Device Information~~~
+The name of the Roomba is Downstairs Roomba
+The Roomba is on
+The Roomba is currently not cleaning
+The Roomba is currently docked
+The suction level is 2
+The dust bin level is 0%
+The battery percentage is 100%
+
+Starting cleaning...
+The Roomba has started cleaning
+
+~~~Roomba Device Information~~~
+The name of the Roomba is Downstairs Roomba
+The Roomba is on
+The Roomba is currently cleaning
+The Roomba is currently not docked
+The suction level is 2
+The dust bin level is 20%
+The battery percentage is 95%
+
+Changing suction level to 3...
+The suction level has been altered
+
+Returning Roomba to dock...
+The Roomba has returned to its dock
+
+~~~Roomba Device Information~~~
+The name of the Roomba is Downstairs Roomba
+The Roomba is on
+The Roomba is currently not cleaning
+The Roomba is currently docked
+The suction level is 3
+The dust bin level is 20%
+The battery percentage is 85%
+
+Emptying dust bin...
+The dust bin has been emptied
+
+~~~Roomba Device Information~~~
+The name of the Roomba is Downstairs Roomba
+The Roomba is on
+The Roomba is currently not cleaning
+The Roomba is currently docked
+The suction level is 3
+The dust bin level is 0%
+The battery percentage is 80%
+
+This device has been turned off
+
+~~~Turning all devices on~~~
+This device has been turned on
+
+This device has been turned on
+
+This device has been turned on
+
+This device has been turned on
+
+This device has been turned on
+
+This device has been turned on
+
+****** Smart Home Devices  ******
+~~~Showing information for all devices~~~
+~~~Lights Device Information~~~
+The name of the lights is Kitchen Lights
+The lights are on
+The color of the lights is Green
+The brightness of the light is 10
+
+~~~Camera Device Information~~~
+The name of the camera is Backyard Camera
+The camera is on
+There has been 2 times where motion has been detected since you last checked
+There is motion detected right now
+The camera is not recording right now
+The battery percentage is 50%
+
+~~~Thermostat Device Information~~~
+The name of the thermostat is Bedroom Thermostat
+The thermostat is on
+The max temp of the thermostat is set to 75
+The min temp of the thermostat is set to 65
+The current temp of the thermostat is 75
+The mode of the thermostat is Heating
+The battery percentage is 70%
+
+~~~Speaker Device Information~~~
+The name of the speaker is Living Room Speaker
+The speaker is on
+The volume of the speaker is 6
+There is a song playing
+The current song playing is Upbeat Song
+The battery percentage is 75%
+
+~~~Lock Device Information~~~
+Name: Front Door Lock
+Power: On
+Status: Locked
+Alarm: Normal
+Battery: 85%
+
+~~~Roomba Device Information~~~
+The name of the Roomba is Downstairs Roomba
+The Roomba is on
+The Roomba is currently not cleaning
+The Roomba is currently docked
+The suction level is 3
+The dust bin level is 0%
+The battery percentage is 80%
+
+~~~Turning all devices off~~~
+This device has been turned off
+
+This device has been turned off
+
+This device has been turned off
+
+This device has been turned off
+
+This device has been turned off
+
+This device has been turned off
+
