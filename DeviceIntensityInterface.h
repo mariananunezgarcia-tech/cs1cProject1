@@ -1,6 +1,9 @@
 #ifndef DEVICEINTENSITYINTERFACE_H_
 #define DEVICEINTENSITYINTERFACE_H_
 
+#include <iostream>
+using namespace std;
+
 /***************************************************************************
  * DeviceIntensityInterface
  * -------------------------------------------------------------------------
@@ -9,8 +12,6 @@
  *		methods for getting and setting the device intensity, as well as
  *		increasing or decreasing the intensity
  **************************************************************************/
-
-
 class DeviceIntensityInterface
 {
 	public:
