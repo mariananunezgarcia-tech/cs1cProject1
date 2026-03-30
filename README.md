@@ -59,7 +59,10 @@ Lila
 - fixed how the manager displays to console
 
 Mariana
-- Completed manager function based on Lila’s code; furthermore utilizing polymorphism to call functions from other related classes. 
+- Completed manager function based on Lila’s code; furthermore utilizing polymorphism to call functions from other related classes.
+- Completed the Smart Lock Device class that utilized polymosphism and 
+- Completed the Roomba Device class
+- Slightly edited the main function to include testing of the Lock and Roomba class. 
 
 Michelle
 - Created the manager class (DeviceManager) that stores all the devices in a vector of BaseDevice pointers and acts as the central controller for all smart home devices
