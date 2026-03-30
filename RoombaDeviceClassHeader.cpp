@@ -383,7 +383,7 @@ void RoombaDevice::displayDeviceInfo()
     // Display docking status
     cout << "The Roomba is currently " << (this->isDocked() ? "docked" : "not docked") << endl;
     // Display suction level
-    cout << "The suction level is " << this->getSuctionLevel() << endl;
+    cout << "The suction level is " << this->getIntensity() << endl;
     // Display dust bin level
     cout << "The dust bin level is " << this->getDustBinLevel() << "%" << endl;
     // Display battery percentage
