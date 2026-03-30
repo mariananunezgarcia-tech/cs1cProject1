@@ -3,9 +3,11 @@
 #include "BaseDeviceClassHeader.h"
 #include "ExceptionsClassHeader.h"
 #include "DevicePowerInterface.h"
+#include "DeviceIntensityInterface.h"
 
 class LightsDevice: public BaseDevice,
-                    public DevicePowerInterface
+                    public DevicePowerInterface,
+					          public DeviceIntensityInterface
 {
     public:
     LightsDevice();
@@ -18,14 +20,18 @@ class LightsDevice: public BaseDevice,
     virtual void turnOn();
     virtual void turnOff();
 
+		virtual int  getIntensity();
+		virtual void setIntensity(int brightness);
+		virtual void increaseIntensity();
+		virtual void increaseIntensity(int amount);
+		virtual void decreaseIntensity();
+		virtual void decreaseIntensity(int amount);
+
     virtual void displayDeviceInfo();
 
     //device specific methods
     void setColor(string color);
     string getColor() const;
-
-    void setBrightness(int brightness);
-    int getBrightness() const;
 
     private:
     string color = "no color set";
