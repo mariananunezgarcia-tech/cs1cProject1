@@ -2,10 +2,13 @@
 #define LIGHTSDEVICECLASSHEADER_H_
 
 #include "BaseDeviceClassHeader.h"
+#include "ExceptionsClassHeader.h"
 #include "DevicePowerInterface.h"
+#include "DeviceIntensityInterface.h"
 
 class LightsDevice: public BaseDevice,
-					public DevicePowerInterface
+					public DevicePowerInterface,
+					public DeviceIntensityInterface
 {
     public:
 		LightsDevice();
@@ -14,16 +17,21 @@ class LightsDevice: public BaseDevice,
 
 		//Accessors
 		virtual string getName();
-		virtual bool getPower()   const;
-		string  getColor()        const;
-		int     getBrightness()   const;
+		virtual bool getPower()    const;
+		virtual void displayDeviceInfo();
+		virtual int getIntensity();
+		string  getColor()         const;
 
 		//mutators
 		virtual void setName(string name);
 		virtual void turnOn();
 		virtual void turnOff();
+		virtual void setIntensity(int brightness);
+		virtual void increaseIntensity();
+		virtual void increaseIntensity(int amount);
+		virtual void decreaseIntensity();
+		virtual void decreaseIntensity(int amount);
 		void setColor(string color);
-		void setBrightness(int brightness);
 
 
     private:
