@@ -4,10 +4,12 @@
 #include "ExceptionsClassHeader.h"
 #include "DevicePowerInterface.h"
 #include "BatteryInterface.h"
+#include "DeviceIntensityInterface.h"
 
 class SpeakerDevice: public BaseDevice,
-                    public DevicePowerInterface,
-                    public BatteryInterface
+                     public DevicePowerInterface,
+                     public BatteryInterface,
+					           public DeviceIntensityInterface
 {
     public:
     SpeakerDevice();
@@ -23,14 +25,16 @@ class SpeakerDevice: public BaseDevice,
     virtual void setBattery(int battery); //Sets the battery's percentage
     virtual void decrementBattery();	  //Decreases the battery's percentage
 
+    virtual int  getIntensity();
+	  virtual void setIntensity(int volume);
+	  virtual void increaseIntensity();
+	  virtual void increaseIntensity(int amount);
+	  virtual void decreaseIntensity();
+	  virtual void decreaseIntensity(int amount);
+
     virtual void displayDeviceInfo();
 
     //device specific methods
-    void setVolume(int volume);
-    int getVolume() const;
-    void incrementVolume();
-    void decrementVolume();
-
     void setCurrentSong(string currentSong);
     string getCurrentSong();
 
