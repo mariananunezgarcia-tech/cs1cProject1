@@ -29,11 +29,13 @@ Gabe
 	utilize the Battery Percentage Interface.
 
 Hana
-- Added three exception classes:
-- General case, power, and invalid input
-- Added general exception for device manager class
+- Created three custom exception classes:
+	- General case, power, and invalid input
+- Added general exceptions within class implementation files
 - Added cout statements to make it clear which device is turned on after an exception
-- Replaced all if statement bodies with exceptions and added if statement in thermostat class that throws an exception if max temperature is less than min temperature and vice versa. Also added two try-catch blocks in main to test exceptions with the thermostat, lights, and camera.
+- Replaced all if statement bodies with categorized exceptions
+- added exception in thermostat class for if max temperature is less than min temperature and vice versa
+- added three try-catch blocks in main to test exceptions with the thermostat, lights, and camera
 
 Lila
 - Created the base class structure
