@@ -16,7 +16,7 @@ Main Focus:
 
 # Team Member Contributions: 
 Gabe
-- Created two abstract interface classes
+- Created three abstract interface classes
 - One for the power state of the device which includes virtual functions for
 	- Turning the device on
 	- Turning the device off
@@ -25,8 +25,14 @@ Gabe
 	- Setting the battery percentage
 	- Decrementing the battery percentage
 	- And getting the current battery percentage
-- All devices utilize the Device Power Interface, and only the camera, thermostat, roomba, and lock
-	utilize the Battery Percentage Interface.
+- A final interface for the intensity of devices which include virtual functions for
+  	- Setting the intensity of brightness, volume, or suction
+  	- Getting the current intensity
+  	- Overloaded methods for increasing the intensity
+  	- Overloaded methods for decreasing the intensity
+- All devices utilize the Device Power Interface, only the camera, thermostat, roomba, and lock
+	utilize the Battery Percentage Interface, and the lights, speaker, and roomba utilize the Device
+	intensity interface
 - Updated the manager class to dynamic cast to type devicePowerInterface in order to access methods for
   	turning devices on and off, as well as returning the current power state.
 
