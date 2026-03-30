@@ -37,7 +37,7 @@ int CameraDevice::getNumOfMotion()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This camera is off.");
+        throw PowerException(getName());
     }
     srand(time(NULL));
     this -> numOfMotion = rand() % 11;
@@ -50,9 +50,7 @@ bool CameraDevice::isMotionDetected()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This camera is off.");
-        /*cout << "This device is off" << endl;
-        return false;*/
+        throw PowerException(getName());        
     }
     //srand(time(NULL));
     decrementBattery();
@@ -65,7 +63,7 @@ void CameraDevice::startRecording()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This camera is off.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> recording = true;
@@ -76,7 +74,7 @@ void CameraDevice::stopRecording()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This camera is off.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> recording = false;
@@ -87,7 +85,7 @@ bool CameraDevice::isRecording() const
 {
     if (getPower() == false)
     {
-        throw DeviceException("This camera is off.");
+        throw PowerException(getName());
     }
     return this -> recording;
 }
@@ -96,7 +94,7 @@ void CameraDevice::setBattery(int battery)
 {
     if (battery < 0 || battery > 100)
     {
-        throw DeviceException("Battery must be between 0 and 100.");
+        throw InvalidInputException("Battery must be between 0 and 100.");
     }
     else
     {

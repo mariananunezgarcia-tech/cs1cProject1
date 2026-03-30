@@ -28,6 +28,7 @@ int main() {
     manager.addDevice(&bedroomThermostat);
     manager.addDevice(&livingRoomSpeaker);
 
+    cout << "Turning lights on..." << endl;
 
     kitchenLights.turnOn();
 
@@ -46,18 +47,9 @@ int main() {
 
     kitchenLights.turnOff();
 
-    try 
-    {
-        cout << "Setting color to Blue..." << endl;
-        kitchenLights.setColor("Blue");
-    }
-    catch (const DeviceException& color)
-    {
-        cout << "Erorr: " << color.what() << endl;
-    }
-
     cout << endl;
 
+    cout << "Turning camera on..." << endl;
 
     backyardCamera.turnOn();
 
@@ -75,6 +67,20 @@ int main() {
 
     backyardCamera.turnOff();
 
+    // test case for power exception
+    try
+    {
+        cout << "Starting recording..." << endl;
+        backyardCamera.startRecording();
+    }
+    catch(const PowerException& power)
+    {
+        cout << power.what() << endl;
+    }
+
+    cout << endl;
+
+    cout << "Turning thermostat on..." << endl;
 
     bedroomThermostat.turnOn();
 
@@ -85,17 +91,20 @@ int main() {
 
     bedroomThermostat.displayDeviceInfo();
 
+
+    // test case for invalid input exception
     try 
     {
         cout << "Setting temperature to 200..." << endl;
         bedroomThermostat.setTargetTemp(200);
     }
-    catch(const DeviceException& temp)
+    catch(const InvalidInputException& temp)
     {
-        cout << "Error: " << temp.what() << endl;
+        cout << temp.what() << endl;
     }
 
     cout << endl;
+
     cout << "Setting temperature to 73..." << endl;
     bedroomThermostat.setTargetTemp(73);
     cout << endl;
@@ -114,6 +123,7 @@ int main() {
 
     bedroomThermostat.turnOff();
 
+    cout << "Turning speaker on..." << endl;
 
     livingRoomSpeaker.turnOn();
 
@@ -131,19 +141,6 @@ int main() {
     livingRoomSpeaker.displayDeviceInfo();
 
     livingRoomSpeaker.turnOff();
-
-
-    /* does not work as of now
-    // Use the manager to turn on devices by name
-    manager.turnDeviceOn("Kitchen Lights");
-    manager.turnDeviceOn("Backyard Camera");
-    manager.turnDeviceOn("Bedroom Thermostat");
-    manager.turnDeviceOn("Living Room Speaker");
-
-    would work if the turn on capabilities were working
-    // Display all devices and their status using the manager
-    manager.showAllDevices();
-    */
 
     return 0;
 }

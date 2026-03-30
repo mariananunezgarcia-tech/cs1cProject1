@@ -1,4 +1,5 @@
 #include "DeviceManagerClassHeader.h"
+#include "ExceptionsClassHeader.h"
 
 // Constructor
 DeviceManager::DeviceManager()
@@ -29,10 +30,11 @@ BaseDevice* DeviceManager::findDevice(const string& name)
 			// If a match is found, the pointer to that device is returned
             return devices[i];
         }
+     
     }
 
-	// If no device with the given name is found, a message is printed and nullptr is returned
-	cout << "Device not found." << endl;
+    // If no device with the given name is found, a message is printed and nullptr is returned
+    throw DeviceException("Device not found.");
 	return nullptr;
 }
 

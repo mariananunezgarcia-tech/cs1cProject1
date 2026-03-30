@@ -35,11 +35,11 @@ void SpeakerDevice::setVolume(int volume)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot change volume.");
+        throw PowerException(getName());
     }
     if (volume > 10 || volume < 0)
     {
-        throw DeviceException("Volume must be between 0 and 10.");
+        throw InvalidInputException("Volume must be between 0 and 10.");
     }
     decrementBattery();
     this -> volume = volume;
@@ -55,11 +55,11 @@ void SpeakerDevice::incrementVolume()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot change volume.");
+        throw PowerException(getName());
     }
     if (this->volume == 10)
     {
-        throw DeviceException("Speaker is already at maximum volume.");
+        throw InvalidInputException("Speaker is already at maximum volume.");
     }
     decrementBattery();
     this -> volume = this->volume + 1;
@@ -69,11 +69,11 @@ void SpeakerDevice::decrementVolume()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot change volume.");
+        throw PowerException(getName());
     }
     if (this->volume == 0)
     {
-        throw DeviceException("Speaker is already at minimum volume.");
+        throw InvalidInputException("Speaker is already at minimum volume.");
     }
     decrementBattery();
     this -> volume = this->volume - 1;
@@ -84,7 +84,7 @@ void SpeakerDevice::setCurrentSong(string currentSong)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot set current song.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> currentSong = currentSong;
@@ -95,7 +95,7 @@ string SpeakerDevice::getCurrentSong()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot get current song.");
+        throw PowerException(getName());
     }
     decrementBattery();
     return this->currentSong;
@@ -105,7 +105,7 @@ void SpeakerDevice::startSong()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. Cannot start song.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> isPlaying = true;
@@ -116,7 +116,7 @@ void SpeakerDevice::stopSong()
 {
     if (getPower() == false)
     {
-        throw DeviceException("This speaker is off. No song is playing.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> isPlaying = false;
@@ -132,7 +132,7 @@ void SpeakerDevice::setBattery(int battery)
 {
     if (battery < 0 || battery > 100)
     {
-        throw DeviceException("Battery must be between 0 and 100.");
+        throw InvalidInputException("Battery must be between 0 and 100.");
     }
     else
     {

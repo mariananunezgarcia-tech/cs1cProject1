@@ -40,7 +40,7 @@ void LightsDevice::setColor(string color)
 
     if (getPower() == false)
     {
-        throw DeviceException("This light is off. Cannot change color.");
+        throw PowerException(getName());
     }
     this -> color = color;
     cout << "The color of this device has been altered" << endl;
@@ -55,12 +55,12 @@ void LightsDevice::setBrightness(int brightness)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This light is off. Cannot change brightness.");
+        throw PowerException(getName());
     }
 
     if (brightness > 10 || brightness < 0)
     {
-        throw DeviceException("Brightness must be between 0 and 10.");
+        throw InvalidInputException("Brightness must be between 0 and 10.");
     }
     else
     {

@@ -39,12 +39,12 @@ void ThermostatDevice::setMaxTemp(int maxTemp)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot set max temperature.");
+        throw PowerException(getName());
     }
 
     if (maxTemp <= minTemp)
     {
-        throw DeviceException("Max temperature must be greater than min temperature.");
+        throw InvalidInputException("Max temperature must be greater than min temperature.");
     }
 
     decrementBattery();
@@ -62,12 +62,12 @@ void ThermostatDevice::setMinTemp(int minTemp)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot set min temperature.");
+        throw PowerException(getName());
     }
 
     if (minTemp >= maxTemp)
     {
-        throw DeviceException("Min temperature must be less than max temperature.");
+        throw InvalidInputException("Min temperature must be less than max temperature.");
     }
 
     decrementBattery();
@@ -98,7 +98,7 @@ void ThermostatDevice::setCurrentTemp(int currentTemp)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot set current temperature.");
+        throw PowerException(getName());
     }
     decrementBattery();
 
@@ -108,12 +108,12 @@ void ThermostatDevice::setCurrentTemp(int currentTemp)
     }
     else if (isValidTemp(currentTemp) == -1)
     {
-        throw DeviceException("Temperature below minimum. Switching to heating.");
+        throw InvalidInputException("Temperature below minimum. Switching to heating.");
         setTempMode("Heating", this -> minTemp);
     }
     else if (isValidTemp(currentTemp) == 1)
     {
-        throw DeviceException("Temperature above maximum. Switching to cooling.");
+        throw InvalidInputException("Temperature above maximum. Switching to cooling.");
         setTempMode("Cooling", this -> maxTemp);
     }
 }
@@ -127,7 +127,7 @@ void ThermostatDevice::setTargetTemp(int targetTemp)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot set target temperature.");
+        throw PowerException(getName());
     }
     decrementBattery();
     this -> targetTemp = targetTemp;
@@ -138,12 +138,12 @@ void ThermostatDevice::setTargetTemp(int targetTemp)
     }
     else if (isValidTemp(targetTemp) == -1)
     {
-        throw DeviceException("Target temperature is below minimum.");
+        throw InvalidInputException("Target temperature is below minimum.");
         setTempMode("Heating", this -> minTemp);
     }
     else if (isValidTemp(targetTemp) == 1)
     {
-        throw DeviceException("Target temperature is above maximum.");
+        throw InvalidInputException("Target temperature is above maximum.");
         setTempMode("Cooling", this -> maxTemp);
     }
     cout << "The target temp of this thermostat has been altered" << endl;
@@ -158,7 +158,7 @@ void ThermostatDevice::setTempMode(string tempMode, int target)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot change temperature mode.");
+        throw PowerException(getName());
     }
     decrementBattery();
     if (tempMode == "Idle")
@@ -184,7 +184,7 @@ void ThermostatDevice::setTempMode(string tempMode)
 {
     if (getPower() == false)
     {
-        throw DeviceException("This thermostat is off. Cannot change temperature mode.");
+        throw PowerException(getName());
     }
     decrementBattery();
     if (tempMode == "Heating")
@@ -221,7 +221,7 @@ void ThermostatDevice::setBattery(int battery)
 {
     if (battery < 0 || battery > 100)
     {
-        throw DeviceException("Battery must be between 0 and 100.");
+        throw InvalidInputException("Battery must be between 0 and 100.");
     }
     else
     {
