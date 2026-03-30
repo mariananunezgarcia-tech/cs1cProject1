@@ -21,7 +21,7 @@ public:
     virtual void setBattery(int battery) = 0; //Sets battery percentage
     virtual void decrementBattery() = 0;	  //Decreases battery
     virtual int  getBattery() const = 0;	  //Returns the current
-    //battery percentage
+                                              //battery percentage
 };
 
 
