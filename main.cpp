@@ -9,6 +9,7 @@
 #include "BatteryInterface.h"
 #include "LockDeviceClassHeader.h"
 #include "RoombaDeviceClassHeader.h"
+#include "DeviceIntensityInterface.h"
 
 using namespace std;
 
@@ -38,7 +39,7 @@ int main() {
     manager.turnDeviceOn(kitchenLights.getName());
     kitchenLights.displayDeviceInfo();
 
-    kitchenLights.setBrightness(10);
+    kitchenLights.setIntensity(10);
     cout << endl;
 
     cout << "Setting color to Green..." << endl;
@@ -125,7 +126,7 @@ int main() {
     livingRoomSpeaker.setCurrentSong("Upbeat Song");
     cout << endl;
 
-    livingRoomSpeaker.incrementVolume();
+    livingRoomSpeaker.increaseIntensity();
     cout << endl;
 
     livingRoomSpeaker.startSong();
@@ -180,7 +181,7 @@ int main() {
     downstairsRoomba.displayDeviceInfo();
 
     cout << "Changing suction level to 3..." << endl;
-    downstairsRoomba.setSuctionLevel(3);
+    downstairsRoomba.setIntensity(3);
     cout << endl;
 
     cout << "Returning Roomba to dock..." << endl;
