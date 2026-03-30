@@ -6,14 +6,23 @@
 #include <stdlib.h>
 #include <time.h>
 
+/***************************************************************************
+ * CameraDevice
+ * -------------------------------------------------------------------------
+ * Inherited Classes:
+ *   BaseDevice           - The parent for every smart device
+ *   DevicePowerInterface - Controls the power state of the device
+ *   BatteryInterface     - Control the battery percentage of the device
+ **************************************************************************/
+
 class CameraDevice: public BaseDevice,
                     public DevicePowerInterface,
                     public BatteryInterface
 {
     public:
-    CameraDevice();
-    CameraDevice(string name);
-    ~CameraDevice();
+    CameraDevice();            //Default Contructor
+    CameraDevice(string name); //Overloaded Constructor
+    ~CameraDevice();           //Default Destructor
 
     //virtual interface methods
     virtual bool getPower()   const;
