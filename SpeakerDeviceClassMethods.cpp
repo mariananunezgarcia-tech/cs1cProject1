@@ -31,52 +31,99 @@ bool SpeakerDevice::getPower() const
     return this->power;
 }
 
-void SpeakerDevice::setVolume(int volume)
+void SpeakerDevice::setIntensity(int volume)
 {
     if (getPower() == false)
     {
-        throw PowerException(getName());
+        throw DeviceException("This speaker is off. Cannot change volume.");
     }
     if (volume > 10 || volume < 0)
     {
-        throw InvalidInputException("Volume must be between 0 and 10.");
+        throw DeviceException("Volume must be between 0 and 10.");
     }
     decrementBattery();
     this -> volume = volume;
     cout << "The volume of the speaker has been altered" << endl;
 }
 
-int SpeakerDevice::getVolume() const
+int SpeakerDevice::getIntensity()
 {
     return this->volume;
 }
 
-void SpeakerDevice::incrementVolume()
+void SpeakerDevice::increaseIntensity()
 {
     if (getPower() == false)
     {
-        throw PowerException(getName());
+        throw DeviceException("This speaker is off. Cannot change volume.");
     }
     if (this->volume == 10)
     {
-        throw InvalidInputException("Speaker is already at maximum volume.");
+        throw DeviceException("Speaker is already at maximum volume.");
     }
     decrementBattery();
-    this -> volume = this->volume + 1;
+    this -> volume = this -> volume + 1;
     cout << "The volume of the speaker has been altered" << endl;
 }
-void SpeakerDevice::decrementVolume()
+
+void SpeakerDevice::increaseIntensity(int amount)
 {
     if (getPower() == false)
     {
-        throw PowerException(getName());
+        throw DeviceException("This speaker is off. Cannot change volume.");
+    }
+    if (this->volume == 10)
+    {
+        throw DeviceException("Speaker is already at maximum volume.");
+    }
+    else if ((this -> volume + amount) > 10)
+    {
+    	this -> volume = 10;
+    }
+    else
+    {
+        this -> volume = this -> volume + amount;
+    }
+
+    decrementBattery();
+    cout << "The volume of the speaker has been altered" << endl;
+}
+
+void SpeakerDevice::decreaseIntensity()
+{
+    if (getPower() == false)
+    {
+        throw DeviceException("This speaker is off. Cannot change volume.");
     }
     if (this->volume == 0)
     {
-        throw InvalidInputException("Speaker is already at minimum volume.");
+        throw DeviceException("Speaker is already at minimum volume.");
     }
     decrementBattery();
     this -> volume = this->volume - 1;
+    cout << "The volume of the speaker has been altered" << endl;
+}
+
+void SpeakerDevice::decreaseIntensity(int amount)
+{
+    if (getPower() == false)
+    {
+        throw DeviceException("This speaker is off. Cannot change volume.");
+    }
+    if (this->volume == 0)
+    {
+        throw DeviceException("Speaker is already at minimum volume.");
+    }
+    else if ((this -> volume - amount) < 0)
+    {
+    	this -> volume = 0;
+    }
+    else
+    {
+        this -> volume = this -> volume - amount;
+    }
+
+    decrementBattery();
     cout << "The volume of the speaker has been altered" << endl;
 }
 
@@ -159,7 +206,7 @@ void SpeakerDevice::displayDeviceInfo()
     cout << "~~~Speaker Device Information~~~" << endl;
     cout << "The name of the speaker is " << this->getName() << endl;
     cout << "The speaker is " << (this->getPower() ? "on" : "off") << endl;
-    cout << "The volume of the speaker is " << this->getVolume() << endl;
+    cout << "The volume of the speaker is " << this->getIntensity() << endl;
     cout << "There is " << (this->isSongPlaying() ? "a" : "no") << " song playing" << endl;
     if (this->isSongPlaying())
     {
