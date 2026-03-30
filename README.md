@@ -18,15 +18,17 @@ Main Focus:
 Gabe
 - Created two abstract interface classes
 - One for the power state of the device which includes virtual functions for
-- Turning the device on
-- Turning the device off
-- Checking the current power state of the device
+	- Turning the device on
+	- Turning the device off
+	- Checking the current power state of the device
 - Another for the battery percentage of the device which includes virtual functions for
-- Setting the battery percentage
-- Decrementing the battery percentage
-- And getting the current battery percentage
-	- All devices utilize the Device Power Interface, and only the camera and the thermostat
+	- Setting the battery percentage
+	- Decrementing the battery percentage
+	- And getting the current battery percentage
+- All devices utilize the Device Power Interface, and only the camera, thermostat, roomba, and lock
 	utilize the Battery Percentage Interface.
+- Updated the manager class to dynamic cast to type devicePowerInterface in order to access methods for
+  	turning devices on and off, as well as returning the current power state.
 
 Hana
 - Created three custom exception classes:
