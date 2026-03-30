@@ -13,6 +13,11 @@
  *   BaseDevice           - The parent for every smart device
  *   DevicePowerInterface - Controls the power state of the device
  *   BatteryInterface     - Control the battery percentage of the device
+ * -------------------------------------------------------------------------
+ *   This class controls the smart home camera systems inheriting funcitons
+ *   to power the device on and off, access battery information, and 
+ *   display the device information. It also contains it's own methods to
+ *   record, and retrieve information about motion detected.
  **************************************************************************/
 
 class CameraDevice: public BaseDevice,
