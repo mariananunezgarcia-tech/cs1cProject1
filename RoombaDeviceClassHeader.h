@@ -5,10 +5,12 @@
 #include "ExceptionsClassHeader.h"
 #include "DevicePowerInterface.h"
 #include "BatteryInterface.h"
+#include "DeviceIntensityInterface.h"
 
 class RoombaDevice : public BaseDevice,
                      public DevicePowerInterface,
-                     public BatteryInterface
+                     public BatteryInterface,
+					           public DeviceIntensityInterface
 {
 public:
     RoombaDevice();
@@ -24,6 +26,13 @@ public:
     virtual void setBattery(int battery);
     virtual void decrementBattery();
 
+	  virtual void setIntensity(int suctionLevel);
+	  virtual void increaseIntensity();
+	  virtual void increaseIntensity(int amount);
+	  virtual void decreaseIntensity();
+	  virtual void decreaseIntensity(int amount);
+	  virtual int  getIntensity();
+
     virtual void displayDeviceInfo();
 
     // roomba specific methods
@@ -33,9 +42,6 @@ public:
 
     void returnToDock();
     bool isDocked() const;
-
-    void setSuctionLevel(int suctionLevel);
-    int getSuctionLevel() const;
 
     void setDustBinLevel(int dustBinLevel);
     int getDustBinLevel() const;
