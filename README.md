@@ -60,8 +60,16 @@ Lila
 
 Mariana
 - Completed manager function based on Lila’s code; furthermore utilizing polymorphism to call functions from other related classes.
-- Completed the Smart Lock Device class that utilized polymosphism and 
-- Completed the Roomba Device class
+- Completed the Smart Lock Device class that utilized polymosphism and functions that allowed the lock to:
+  		- turn on/off
+		- getName()
+  		- getPower()
+  		- lock()/unlock()
+  		- setPin()
+- Completed the Roomba Device class that utilized polymosphism and functions that allowed the lock to:
+  		- stopCleaning()
+  		- returnToDock()
+  		- emptyDustBinLevel()
 - Slightly edited the main function to include testing of the Lock and Roomba class. 
 
 Michelle
