@@ -51,6 +51,23 @@ string LightsDevice::getColor() const
     return this -> color;
 }
 
+void LightsDevice::setIntensity(int brightness)
+{
+    if (this -> power == false)
+    {
+        cout << "This device is off" << endl;
+        return;
+    }
+    if (brightness > 10 || brightness < 0)
+    {
+        cout << "Not a valid brightness level" << endl;
+    }
+    else
+    {
+        this -> brightness = brightness;
+    }
+}
+
 int LightsDevice::getIntensity()
 {
     return this -> brightness;
